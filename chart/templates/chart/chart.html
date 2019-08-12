@@ -39,7 +39,8 @@
 			&nbsp;&nbsp;
 		</td>
 	</tr>
-</table>
+</table><br>
+<button onclick="printContent('ChartCanvas')"> Print Chart</button>
 </center>
 <br>
 <a href="{% url 'chart:home' %}"> << Back </a>
@@ -54,5 +55,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" src="{% static 'chart/js/Chart.js' %}"></script>
 <script type="text/javascript" src="{% static 'chart/js/chart_view.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@1.5.3/dist/jspdf.min.js"></script>
 
 
