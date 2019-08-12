@@ -1,0 +1,39 @@
+
+<h3><div><a href="{% url 'chart:logout' %}"> Logout </a></div></h3>
+<!--   session id: <div>{{ session_id }}</div> -->
+
+
+<div>Upload CSV file !</div><br>
+
+<div>{{ msg }}</div><br><br>
+
+<form method="post" enctype="multipart/form-data" action="{% url 'chart:upload' %}">
+    {% csrf_token %}
+    <input type="file" name="file_upload" required>
+    <button type="submit">Upload</button>
+  </form>
+
+<br><br>
+
+<div></div>
+
+
+<table style="width:25%" border = "1">
+ <tr>
+    <th colspan="3">:Uploaded Files List:</th>
+</tr>
+{% if file_list %}
+	{% for file in file_list  %}
+	  <tr>
+	    <td align = 'center'><a href="{{ file.file_path }}">{{ file.file_name }}</a></td>
+		<td align = 'center'><a href="{% url 'chart:chart' file.id  type%}">View Chart</a></td>
+		<td align = 'center'><a href="{% url 'chart:delete' file.id %}">Delete</a></td>	    
+	  </tr>
+	{% endfor %}
+{% else %}
+
+ 	<tr>
+    <td align = 'center' colspan="3">No files to show.</td>
+  </tr>
+{% endif %}
+</table>

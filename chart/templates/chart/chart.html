@@ -1,0 +1,58 @@
+
+  <h2>Chart is here !</h2>
+
+  <canvas id="ChartCanvas" width="400" height="50"></canvas>
+
+<br>
+<center>
+<table border = "1">
+	<tr><th colspan="6">Chart Types</th></tr>
+	<tr>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'bar' %}"> Bar </a>
+			&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'line' %}"> Line </a>
+			&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'pie' %}"> Pie </a>
+			&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'radar' %}"> Radar </a>
+			&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'polarArea' %}"> Polar Area </a>
+			&nbsp;&nbsp;
+		</td>
+		<td align="center">
+			&nbsp;&nbsp;
+			<a href="{% url 'chart:chart' file_id 'doughnut' %}"> Doughnut </a>
+			&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+</center>
+<br>
+<a href="{% url 'chart:home' %}"> << Back </a>
+
+{% load static %}
+
+<script type="text/javascript"> 
+	var file_id = "{{ file_id }}";
+	var chart_type = "{{ type }}";
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'chart/js/Chart.js' %}"></script>
+<script type="text/javascript" src="{% static 'chart/js/chart_view.js' %}"></script>
+
+
